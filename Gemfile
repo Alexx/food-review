@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+# Custom gems
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.3.1'
+gem 'sassc-rails', '>= 2.1.0'
+gem 'faker'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
@@ -35,11 +41,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
-# Custom gems
-gem 'jquery-rails'
-gem 'bootstrap', '~> 4.3.1'
-gem 'sassc-rails', '>= 2.1.0'
 
 group :test do
   gem 'shoulda-matchers'
