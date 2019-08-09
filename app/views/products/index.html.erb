@@ -1,5 +1,6 @@
 <h1>Products</h1>
 
+<h3>Most Recent Products</h3>
 <% if @recent_products.any? %>
   <ul>
     <% @recent_products.each do |product| %>
@@ -9,16 +10,5 @@
 <% else %>
   <p>There are no products yet.</p>
 <% end %>
-
-<% if @most_reviewed_products.any? %>
-  <ul>
-    <% @most_reviewed_products.each do |product| %>
-      <li><%= link_to product.name, product_path(product) %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>There are no products yet.</p>
-<% end %>
-
 
 <p><%= link_to "Create new product", new_product_path %></p>
