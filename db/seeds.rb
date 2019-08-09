@@ -9,9 +9,19 @@
 Product.destroy_all
 
 50.times do |index|
-  Product.create!(name: Faker::Food.dish,
-                  country_of_origin: Faker::Address.country,
-                  cost: Faker::Number.between(from: 6, to: 30))
-end
-
-p "Created #{Product.count} products"
+  product = Product.create!(name: Faker::Food.dish,
+                            country_of_origin: Faker::Address.country,
+                            cost: Faker::Number.between(from: 6, to: 30))
+    if product.persisted?
+      rand(1..25).times do
+        product.reviews.create(
+          author: Faker::Name.name,
+          content_body: Faker::Lorem.sentence,
+          rating: rand(1..5)
+        )
+        p "New Review created."
+      end
+    end
+    p "New Product created."
+  end
+  p "Created #{Product.count} products."
