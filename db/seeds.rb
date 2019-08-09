@@ -16,12 +16,10 @@ Product.destroy_all
       rand(1..25).times do
         product.reviews.create(
           author: Faker::Name.name,
-          content_body: Faker::Lorem.sentence,
+          content_body: Faker::Lorem.paragraph(sentence_count: rand(1..6), supplemental: false, random_sentences_to_add: rand(3..8)),
           rating: rand(1..5)
         )
-        p "New Review created."
       end
     end
-    p "New Product created."
   end
   p "Created #{Product.count} products."
