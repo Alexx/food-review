@@ -16,7 +16,7 @@ Product.destroy_all
       rand(1..25).times do
         product.reviews.create(
           author: Faker::Name.name,
-          content_body: Faker::Lorem.paragraph_by_chars(number: 512, supplemental: false),
+          content_body: Faker::Lorem.paragraph_by_chars(number: rand(50..250), supplemental: false),
           rating: rand(1..5)
         )
       end
