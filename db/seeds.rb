@@ -8,7 +8,7 @@
 
 Product.destroy_all
 
-50.times do |index|
+200.times do |index|
   product = Product.create!(name: Faker::Food.dish,
                             country_of_origin: Faker::Address.country,
                             cost: Faker::Number.between(from: 6, to: 30))

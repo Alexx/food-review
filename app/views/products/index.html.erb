@@ -1,14 +1,98 @@
 <h1>Products</h1>
 
-<h3>Most Recent Products</h3>
-<% if @recent_products.any? %>
-  <ul>
-    <% @recent_products.each do |product| %>
-      <li><%= link_to product.name, product_path(product) %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>There are no products yet.</p>
-<% end %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h3>Most Recent</h3>
+      </div>
+      <div class="card-body">
+        <% if @recent_products.any? %>
+          <% @recent_products.each do |product| %>
+          <div class="card">
+            <div class="card-body">
+              <%= link_to product.name, product_path(product) %>
+            </div>
+          </div>
+          <% end %>
+        <% else %>
+        <p>There are no products yet.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h3>Most Reviewed</h3>
+      </div>
+      <div class="card-body">
+        <% if @most_reviewed_products.any? %>
+          <% @most_reviewed_products.each do |product| %>
+          <div class="card">
+            <div class="card-body">
+              <%= link_to product.name, product_path(product) %>
+            </div>
+          </div>
+          <% end %>
+        <% else %>
+        <p>There are no products yet.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h3>Made in the USA</h3>
+      </div>
+      <div class="card-body">
+        <% if @usa_products.any? %>
+        <ul>
+          <% @usa_products.each do |product| %>
+          <div class="card">
+            <div class="card-body">
+              <%= link_to product.name, product_path(product) %>
+            </div>
+          </div>
+          <% end %>
+        </ul>
+        <% else %>
+        <p>There are no USA products yet.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3>All Products</h3>
+      </div>
+      <div class="row">
+        <% if @products.any? %>
+        <% @products.each do |product| %>
+        <div class="col-md-3">
+          <div class="card-body">
+            <div class="card">
+              <div class="card-body">
+                <%= link_to product.name, product_path(product) %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% else %>
+        <p>There are no products yet.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <p><%= link_to "Create new product", new_product_path %></p>

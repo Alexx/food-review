@@ -5,14 +5,14 @@ class Product < ApplicationRecord
   validates :country_of_origin, presence: true
 
   scope :three_most_recent, -> { order(created_at: :desc).limit(3)}
-
-  # scope :most_reviews, -> {(
-  #     select("products.id, products.name, products.cost, products.country_of_origin, count(reviews.id) as tasks_count")
-  #     .joins(:reviews)
-  #     .group("products.id")
-  #     .order("reviews_count DESC")
-  #     .limit(10)
-  #     )}
+  scope :usa, -> { ( where(country_of_origin: "United States").limit(3)) }
+  scope :most_reviews, -> {(
+      select("products.id, products.name, products.cost, products.country_of_origin, count(reviews.id) as reviews_count")
+      .joins(:reviews)
+      .group("products.id")
+      .order("reviews_count DESC")
+      .limit(3)
+      )}
 
   before_save(:titleize_product)
 

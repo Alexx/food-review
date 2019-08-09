@@ -3,7 +3,8 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @recent_products = Product.three_most_recent
-    # @most_reviewed_products = Product.most_reviews
+    @most_reviewed_products = Product.most_reviews
+    @usa_products = Product.usa
     render :index
   end
 
