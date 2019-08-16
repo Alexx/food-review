@@ -1,4 +1,5 @@
 require 'rails_helper'
+FactoryBot.create(:product)
 
 describe Product do
   it { should have_many(:reviews) }
