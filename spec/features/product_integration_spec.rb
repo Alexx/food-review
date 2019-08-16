@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe "the add a product and review process" do
-  FactoryBot.create(:user)
   it "adds a new product" do
     visit products_path
     click_link 'Create new product'
