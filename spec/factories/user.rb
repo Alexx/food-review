@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-Factory.define do
+FactoryBot.define do
   factory :user do
     email {"test_user@testing.com"}
     password{"testpassword"}
