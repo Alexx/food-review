@@ -10,7 +10,7 @@ gem 'sassc-rails', '>= 2.1.0'
 gem 'faker'
 gem 'capybara'
 gem 'devise'
-gem 'factory_bot_rails'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -47,6 +47,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
 end
 
 group :development, :test do
