@@ -30,6 +30,8 @@ _Ruby on Rails_
 
 _Postgres_
 
+_Devise (authentication)_
+
 _Rspec_
 
 _SQL_
